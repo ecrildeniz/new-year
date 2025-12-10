@@ -1,13 +1,13 @@
 body {
-    margin: 0;
+    background: linear-gradient(135deg, #ffd6e8 0%, #ffb3d9 50%, #ffe6f2 100%), 
+                url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=60");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: soft-light;
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ffd6e8, #ffeef5);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
 }
+
 
 /* Noel ışıkları */
 .lights {
