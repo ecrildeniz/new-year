@@ -55,3 +55,15 @@ function startDraw() {
         <strong>${assigned.toUpperCase()}</strong>'e hediye alacak! 🎄💗
     `;
 }
+
+// Kalpleri rastgele konumlara yerleştir
+for (let i = 0; i < 20; i++) {
+    const h = document.createElement("div");
+    h.classList.add("heart");
+
+    h.style.left = Math.random() * 100 + "vw";
+    h.style.top = Math.random() * 100 + "vh";
+    h.style.animationDelay = (Math.random() * 5) + "s";
+
+    document.body.appendChild(h);
+}

@@ -1,80 +1,108 @@
+/* --- Temel Stil --- */
 body {
-    background: linear-gradient(135deg, #ffd6e8 0%, #ffb3d9 50%, #ffe6f2 100%), 
-                url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=60");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    background-blend-mode: soft-light;
-    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background: #ffd6e8; /* açık pembe */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: "Poppins", sans-serif;
 }
 
 
-/* Noel ışıkları */
-.lights {
+/* --- Kalpler Animasyonu (PNG kullanılmadan CSS ile kalp formu) --- */
+.heart {
     position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    transform: rotate(45deg);
+    animation: float 6s infinite ease-in-out;
+    opacity: 0.7;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -10px;
+    left: 0;
+}
+
+.heart::after {
+    left: -10px;
     top: 0;
+}
+
+/* Kalpler hareket animasyonu */
+@keyframes float {
+    0%   { transform: translateY(0) scale(1) rotate(45deg); opacity: 0.8; }
+    50%  { transform: translateY(-40px) scale(1.4) rotate(45deg); opacity: 1; }
+    100% { transform: translateY(0) scale(1) rotate(45deg); opacity: 0.8; }
+}
+
+
+/* --- Noel ışığı efekti --- */
+body::after {
+    content: "";
+    position: absolute;
     width: 100%;
-    height: 120px;
-    background: url('https://i.imgur.com/pLr6gZJ.png') repeat-x;
-    animation: glow 1.8s infinite alternate ease-in-out;
+    height: 100%;
+    top: 0; left: 0;
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.5) 0%, transparent 70%),
+        radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 80%),
+        radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 90%);
+
+    background-size: 300px 300px, 500px 500px, 700px 700px;
+    animation: lights 8s infinite alternate;
 }
 
-@keyframes glow {
-    from { filter: brightness(0.7); }
-    to { filter: brightness(1.3); }
+@keyframes lights {
+    from { opacity: .4; }
+    to   { opacity: .8; }
 }
 
+
+/* --- Yılbaşı kartı --- */
 .container {
-    text-align: center;
     background: white;
     padding: 40px;
-    border-radius: 20px;
-    box-shadow: 0 0 30px rgba(255, 150, 200, 0.4);
-    width: 350px;
-    position: relative;
+    width: 360px;
+    text-align: center;
+    border-radius: 26px;
+    box-shadow: 0px 8px 25px rgba(0,0,0,0.1);
 }
 
-.title {
-    color: #d63384;
-    font-size: 30px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(255, 200, 230, 0.7);
-}
 
-.hint {
-    color: #a14d77;
-    margin-bottom: 10px;
-}
-
-input {
-    width: 90%;
-    padding: 12px;
-    border: 2px solid #f7b8d4;
-    border-radius: 10px;
-    outline: none;
-    font-size: 16px;
-}
-
+/* --- Buton Ortada & Tatlı Pembemsi --- */
 button {
-    margin-top: 15px;
-    padding: 12px 25px;
-    background: linear-gradient(135deg, #ffb3d1, #ff8fb3);
+    margin-top: 20px;
+    width: 200px;
+    padding: 12px;
     border: none;
-    border-radius: 12px;
+    background: linear-gradient(45deg, #ff7db8, #ffa7d1);
     color: white;
-    font-weight: bold;
+    border-radius: 30px;
+    font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
-    box-shadow: 0 0 10px rgba(255, 100, 150, 0.4);
+    transition: 0.2s;
 }
 
 button:hover {
     transform: scale(1.05);
 }
 
-#result {
-    margin-top: 25px;
-    font-size: 18px;
-    font-weight: bold;
-    color: #c2185b;
-}
+
+/* --- Rastgele ekranın içine kalpler oluşturuyoruz (script.js bunu dolduracak) --- */
