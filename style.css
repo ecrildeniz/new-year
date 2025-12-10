@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #ffd6e8, #ffeef5);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Noel ışıkları */
+.lights {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 120px;
+    background: url('https://i.imgur.com/pLr6gZJ.png') repeat-x;
+    animation: glow 1.8s infinite alternate ease-in-out;
+}
+
+@keyframes glow {
+    from { filter: brightness(0.7); }
+    to { filter: brightness(1.3); }
+}
+
+.container {
+    text-align: center;
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 150, 200, 0.4);
+    width: 350px;
+    position: relative;
+}
+
+.title {
+    color: #d63384;
+    font-size: 30px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px rgba(255, 200, 230, 0.7);
+}
+
+.hint {
+    color: #a14d77;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 90%;
+    padding: 12px;
+    border: 2px solid #f7b8d4;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(135deg, #ffb3d1, #ff8fb3);
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(255, 100, 150, 0.4);
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#result {
+    margin-top: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #c2185b;
+}
